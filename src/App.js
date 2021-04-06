@@ -28,16 +28,8 @@ class App extends Component {
       stand: false
     };
   }
+  
   // used to calculate total of player/dealer hands
-  // cards from player/dealer hand arrays are iterated through with a for each
-  // loop, if the card value is an Ace the card is "pushed"(added to end of the array)
-  // otherwise cards are added to the front of the array using unshift
-  // then a reduce function is used on this newly formed array
-  // stipulating the value for face cards as 10
-  // as the reduce function reaches the aces at the end of the array
-  // aces can be worth a value of 1 or 11, depending on if the addition of the ace
-  // results in a total exceeding 21
-  // if this is the case the ace value becomes 1 rather than 11
   getCount(cards) {
     const newDeck = [];
     cards.forEach((card) => {
@@ -113,9 +105,7 @@ class App extends Component {
   // This function adds 2 cards to the dealers hand when the deal cards
   // button is pressed
   add2ToDealerHandArray(card) {
-    // get a random number from length of remaining cards
     let indexToremove = getRandomInt(deckArray.length);
-    // get the object to remove
     var removedCard = deckArray[indexToremove];
     // add the selected card with concatenation to the playerHand array
     // and store in "joined" variable
@@ -164,27 +154,14 @@ class App extends Component {
       }, 300000000);
     }
 
-    console.log(dealerTotal + "Is the dealer total ");
-
     // the following are if/else if statements determining the players position after
     // standing
-    if (
-      // if the players total is greater than the dealers and also
-      // less than 21, playerWins state variable is updated to true
-      playerTotal > dealerTotal &&
-      playerTotal <= 21
-    ) {
+    if (playerTotal > dealerTotal && playerTotal <= 21) {
       this.setState({ playerWins: true });
-      // if the player total is less than the dealers dealerWins
-      // state is updated to true
     } else if (playerTotal < dealerTotal) {
       this.setState({ dealerWins: true });
-      // if player total and dealer total are equal, the draw state
-      // variable is updated to true
     } else if (playerTotal === dealerTotal) {
       this.setState({ draw: true });
-      // else the player is bust and the bust state variable is
-      // set to true
     } else {
       this.setState({ bust: true });
     }
@@ -195,8 +172,7 @@ class App extends Component {
     }
   }
 
-  // this function resets the state of all arrays and variables
-  // it is triggered by the New Game button
+
   startNewGame(e) {
     window.location.reload();
   }
@@ -254,16 +230,12 @@ class App extends Component {
     }
 
     return (
-      // div to contain entire App page
       <div className="App">
-        {/* element to render navigation bar at top of page */}
         <Header />
-        {/* div to contain the Deal Card button */}
         <div className="dealButton">
           <button
             button
             type="button"
-            // bootstrap class for button styling
             class="btn btn-dark btn-circle btn-xl"
             // button will be disabled when cardsDealt is true
             disabled={this.state.cardsDealt}
@@ -274,15 +246,12 @@ class App extends Component {
             Deal Cards
           </button>
         </div>{" "}
-        {/* closing of dealButton div */}
-        {/* div to contain the hit, stand and new game buttons */}
         <div className="buttons">
           {/* the stand button will render when cardsDealt is true */}
           {this.state.cardsDealt && (
             <button
               button
               type="button"
-              // bootstrap class for button styling
               class="btn btn-dark btn-circle btn-xl"
               // button will be disabled when playerHitDisabler is true
               disabled={playerHitDisable}
@@ -298,7 +267,6 @@ class App extends Component {
             <button
               button
               type="button"
-              // bootstrap class for button styling
               class="btn btn-dark btn-circle btn-xl"
               // button will be disabled when playerHitDisabler is true
               disabled={playerHitDisable}
@@ -314,7 +282,6 @@ class App extends Component {
             <button
               button
               type="button"
-              // bootstrap class for button styling
               class="btn btn-dark btn-circle btn-xl"
               // button will be disabled when when gameBegun is false
               disabled={!this.state.gameBegun}
