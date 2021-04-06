@@ -9,13 +9,9 @@ import { Link } from "react-router-dom";
 class Home extends Component {
   render() {
     return (
-      // div to contain entire Home page
       <div className="Home">
-        {/* element to render navigation bar at top of page */}
         <Header />
-        {/* div to contain play button */}
         <div className="play-button">
-          {/* "Play BlackJack" button that links to "Game" page */}
           <button className="btn btn-dark btn-circle btn-xl">
             <Link
               to="/Game"
@@ -25,9 +21,7 @@ class Home extends Component {
             </Link>
           </button>
         </div>
-        {/* div to contain Homepage image */}
         <div className="Home-image">
-          {/* image tag to render image from Images folder */}
           <img className="card-img" src={images} alt="Four cards fanned"></img>
         </div>
       </div>
