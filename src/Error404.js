@@ -7,11 +7,8 @@ import { Link } from "react-router-dom";
 class Error404 extends Component {
   render() {
     return (
-      // div wrapping all page elements
       <div className="Error404">
-        {/* element to render navigation bar at top of page */}
         <Header />
-        {/* div wrapping text that communicates to the user they have reached an undefined route path  */}
         <div>
           <img className="card-img" src={error} alt="error"></img>
         </div>
