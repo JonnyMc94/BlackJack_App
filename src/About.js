@@ -1,19 +1,13 @@
 import React, { Component } from "react";
-// import reference to Header file containing navigation bar
 import Header from "./Header.js";
 
 class About extends Component {
   render() {
     return (
-      // div wrapping all page elements
       <div className="About">
-        {/* element to render navigation bar at top of page */}
         <Header />
-        {/* div container wrapping three text containers */}
         <div className="container">
-          {/* div to wrap all three text containers in one row split in three columns */}
           <div className="row">
-            {/* div containing first column */}
             <div className="col-sm">
               <h1>Team Introduction</h1>
               Our team had met each other for the first time in September and we
@@ -28,7 +22,6 @@ class About extends Component {
               too. So when the oppurtuiunty arose to create something fun we
               jumped at it.
             </div>
-            {/* div containing second column */}
             <div className="col-sm2">
               <h1>Rules of Game</h1>
               <ul>
@@ -57,7 +50,6 @@ class About extends Component {
                 </li>
               </ul>
             </div>
-            {/* div containing third column */}
             <div className="col-sm3">
               <h1>History of Game</h1>
               The origin of the game is still up for debate. Some say it was
