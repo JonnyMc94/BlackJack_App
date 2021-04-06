@@ -5,11 +5,8 @@ import { Link } from "react-router-dom";
 class Header extends Component {
   render() {
     return (
-      // html header tag to wrap navigation bar at top of page
       <header>
-        {/* collapsable navigation bar code copied from Bootstrap */}
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          {/* html tag wrapping "BlackJack" brand plus icons, required to display in navigation bar */}
           <h3 class="text-center">
             {/* clubs icon */}
             <svg
